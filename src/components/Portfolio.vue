@@ -28,7 +28,7 @@
     data: function () {
       return {
         items: [
-  
+
         ],
         fadeIn: false,
         totalItems: 0
@@ -43,14 +43,14 @@
         })
       },
       onLoaded(image) {
-        var itemCount = this.items.length - 1
+        var itemCount = this.items.length - 2
         if (this.totalItems === itemCount) {
           this.fadeIn = true;
           console.log("fadeIn")
         } else {
           this.totalItems++;
           console.log(itemCount + " " + this.totalItems)
-        } 
+        }
       }
     },
     mounted () {
@@ -70,21 +70,21 @@
     opacity: 0;
     transition: opacity 1.5s;
     height: 1px;
-    overflow: hidden;    
+    overflow: hidden;
 
     &.fadeIn {
       opacity: 1;
       height: auto;
-      overflow: auto;    
+      overflow: auto;
     }
-    
+
     .box {
       &.in-viewport {
           opacity: 1;
           margin-top: 0;
           transition: linear 1s;
           transition-delay: 1s;
-      }   
+      }
       &.below-viewport {
         opacity: 0;
         margin-top: 10px;
@@ -93,12 +93,12 @@
           margin-top: 0;
           transition: linear 1s;
           transition-delay: 1s;
-        }   
+        }
       }
     }
-    
+
     &-item {
-      
+
       position: relative;
       display: block;
       cursor: pointer;
