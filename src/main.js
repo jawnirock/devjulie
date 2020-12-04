@@ -8,7 +8,9 @@ import VueMasonry from 'vue-masonry-css'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import inViewportDirective from 'vue-in-viewport-directive'
+import ZoomOnHover from "vue-zoom-on-hover";
 
+Vue.use(ZoomOnHover);
 Vue.directive('in-viewport', inViewportDirective)
 Vue.use(VueAxios, axios)
 Vue.use(VueMasonry);

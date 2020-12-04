@@ -5,14 +5,12 @@
     </div>
 
   <div class="portfolioItem container" :class="{ fadeIn: fadeIn }">
-      
+
       <div class="portfolioItem-item" v-for="(item, index) in items" :key="index">
         <img class="portfolioItem-item-img" :src="'http://julie.pash.rocks' + item.image" @click="currentZoom = (index + 1)" v-on:load="onLoaded(item.image)">
-        <div class="portfolioItem-item-zoom" v-if="currentZoom && currentZoom == (index + 1)" @click="currentZoom = false">
-          <v-zoom  class="portfolioItem-item-zoom-img" :img="'http://julie.pash.rocks' + item.image" :width="900"></v-zoom>
-        </div>
+        <zoom-on-hover :scale="2" :img-normal="'http://julie.pash.rocks' + item.image"  v-on:load="onLoaded(item.image)"></zoom-on-hover>
       </div>
-      
+
   </div>
 </div>
 </template>
@@ -52,7 +50,7 @@
         } else {
           this.totalItems++;
           console.log(itemCount + " " + this.totalItems)
-        } 
+        }
       }
     },
     mounted () {
@@ -78,33 +76,13 @@
   &-item {
     width: 100%;
     margin-bottom: 20px;
-    &-zoom {
-      position: fixed;
-      height: calc(100vh + 80px);
-      width: 100%;
-      left: 0;
-      top: -150px;
-      z-index: 999;
-      background-color: rgba(0,0,0,0.5);
-      .zoomImg {
-        height: 100%;
-        width: auto;
-      }
-      &-close {
-        position: absolute;
-        right: 10px;
-        top: 60px;
-        cursor: pointer;
-        width: 30px;
-        &:hover {
-          opacity: 0.7;
-        }
-      }
-    }
     &-img {
-      width: 100%;
+      display: none;
+    }
+    img {
       cursor: zoom-in;
     }
+
   }
 }
 
